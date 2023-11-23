@@ -70,7 +70,7 @@ c. Create an IAM OIDC identity provider for your cluster with the following comm
 
 a. View your cluster's OIDC provider URL. Replace my-cluster with your cluster name. If the output from the command is None, review 1 and 2 above
 
-`aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text`
+`aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.issuer" --output text`
 
 An example output is as follows.
 ![image-1b](./Images/image-1b.png)
@@ -122,16 +122,16 @@ aws iam attach-role-policy \
 
 To add the Amazon EBS CSI add-on using the AWS CLI
 
-Run the following command. Replace my-cluster with the name of your cluster, 111122223333 with your account ID, and AmazonEKS_EBS_CSI_DriverRole with the name of the role that was created earlier. If your cluster is in the AWS GovCloud (US-East) or AWS GovCloud (US-West) AWS Regions, then replace arn:aws: with arn:aws-us-gov:.
+Run the following command. Replace cluster_name with the name of your cluster, 111122223333 with your account ID, and AmazonEKS_EBS_CSI_DriverRole with the name of the role that was created earlier. If your cluster is in the AWS GovCloud (US-East) or AWS GovCloud (US-West) AWS Regions, then replace arn:aws: with arn:aws-us-gov:.
 
 ```
-aws eks create-addon --cluster-name my-cluster --addon-name aws-ebs-csi-driver \
+aws eks create-addon --cluster-name $cluster_name --addon-name aws-ebs-csi-driver \
   --service-account-role-arn arn:aws:iam::953523290929:role/AmazonEKS_EBS_CSI_DriverRole
 ```
 
 ![image-1d](./Images/image-1d.png)
 
-Follow procedures in this [link](https://docs.aws.amazon.com/eks/latest/userguide/ebs-sample-app.html) to complete the configuration.
+Follow procedures in this [link](https://docs.aws.amazon.com/eks/latest/userguide/ebs-sample-app.html) to confirm the configuration.
 
 ## Conclusion
 
