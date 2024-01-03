@@ -37,7 +37,7 @@ STEPS
 1. IAM Role Setup:
 
 Create an IAM role with the necessary permissions for the EBS CSI Driver to interact with EBS volumes.
-The Amazon EBS CSI plugin requires IAM permissions to make calls to AWS APIs on your behalf. The
+The Amazon EBS CSI plugin requires IAM permissions to make calls to AWS APIs on your behalf.
 The example [policy](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/example-iam-policy.json) can be used to define the required permissions. Additionally, AWS provides a managed policy at ARN
 `arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy` which we will make use here.
 
